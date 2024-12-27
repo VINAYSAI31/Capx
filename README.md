@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+# Capx: Stock Portfolio Management Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Capx is a web application designed for managing stock portfolios. It provides users with a simple interface to track and manage their stocks. The application uses **React** for the frontend and **Spring Boot** for the backend, integrating the **AlphaVantage API** for stock data.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+### Main Page (Stocks List)
 
-### `npm start`
+- Displays a list of stocks retrieved from the AlphaVantage API.
+- Each stock has an **Add** button to add it to the user’s portfolio.
+- At the top of the page, a **Dashboard** button navigates to the user’s portfolio dashboard.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### User Dashboard
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Displays a table of all stocks added by the user.
+- Includes options to **Edit** and **Delete** stocks in the portfolio.
+- Provides an overview of the user's portfolio with actionable insights.
 
-### `npm test`
+### Additional Functionality
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- The frontend is deployed on **Vercel**.
+- The backend is deployed on **Railway.app**.
 
-### `npm run build`
+## Limitations
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- The application uses the free AlphaVantage API, which allows only **25 requests per day**. This limitation may affect the availability of live stock data.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Steps to Run the Project Locally
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `npm run eject`
+1. Install **Node.js** (for React frontend).
+2. Install **Java 17** and **Maven** (for Spring Boot backend).
+3. Set up a **MySQL** database.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Frontend
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd capx-frontend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Create a `.env` file in the root of the frontend directory and add the following:
+   ```env
+   REACT_APP_API_URL=<your-backend-url>
+   ```
+   Replace `<your-backend-url>` with the deployed backend URL or `http://localhost:8080` for local testing.
+4. Run the development server:
+   ```bash
+   npm start
+   ```
+5. Access the frontend at `http://localhost:3000`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Backend
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd capx-backend
+   ```
+2. Update the `application.properties` file with your database credentials and AlphaVantage API key:
+   ```properties
+   spring.datasource.url=jdbc:mysql://localhost:3306/capx
+   spring.datasource.username=<your-db-username>
+   spring.datasource.password=<your-db-password>
+   alphavantage.api.key=<your-api-key>
+   ```
+3. Build and run the backend:
+   ```bash
+   mvn clean install
+   mvn spring-boot:run
+   ```
+4. The backend will be available at `http://localhost:8080`.
 
-## Learn More
+## Assumptions
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Users are expected to have a basic understanding of Node.js and Java development environments.
+- The MySQL database should be pre-configured with necessary permissions.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Links
 
-### Code Splitting
+- Frontend (Vercel): https://capx-assignment.vercel.app/
+- Backend (Railway):https://capx-backend-production.up.railway.app/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
