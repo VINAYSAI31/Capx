@@ -80,7 +80,7 @@ export function RealTimestocks() {
     };
 
     try {
-      const response = await fetch('https://capx-backend-production.up.railway.app/api/stocks/getall/api/stocks/addstock', {
+      const response = await fetch('https://capx-backend-production.up.railway.app/api/stocks/addstock', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
