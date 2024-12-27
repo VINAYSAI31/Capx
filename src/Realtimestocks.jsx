@@ -9,7 +9,7 @@ export function RealTimestocks() {
   const [quantity, setQuantity] = useState('');
   const [buyPrice, setBuyPrice] = useState('');
   const [alert, setAlert] = useState(null); // New state for custom alerts
-  const API_KEY = 'XPU2II9JKWMVFV24'; // Replace with your Alpha Vantage API key
+  const API_KEY = '8CGEKJ2P0XRH5R0E'; // Replace with your Alpha Vantage API key
 
   useEffect(() => {
     const fetchStockData = async () => {
