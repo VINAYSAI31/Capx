@@ -10,7 +10,7 @@ const Dashboard = () => {
 
   // Fetch stock data from an API
   useEffect(() => {
-    fetch('http://localhost:9090/api/stocks/getall')
+    fetch('https://capx-backend-production.up.railway.app/api/stocks/getall')
       .then((response) => response.json())
       .then((data) => {
         setStocks(data);
@@ -31,14 +31,14 @@ const Dashboard = () => {
 
   // Fetch portfolio value from the API
   useEffect(() => {
-    fetch('http://localhost:9090/api/stocks/portfolio-value')
+    fetch('https://capx-backend-production.up.railway.app/api/stocks/portfolio-value')
       .then((response) => response.json())
       .then((data) => setPortfolioValue(data))
       .catch((error) => console.error('Error fetching portfolio value:', error));
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:9090/api/stocks/getall')
+    fetch('https://capx-backend-production.up.railway.app/api/stocks/getall')
       .then((response) => response.json())
       .then((data) => {
         console.log('Stock Data:', data); // Log API response

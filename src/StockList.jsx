@@ -13,7 +13,7 @@ export function StockList() {
     const fetchStocks = async () => {
       setLoading(true);
       try {
-        const response = await fetch("http://localhost:9090/api/stocks/getall");
+        const response = await fetch("https://capx-backend-production.up.railway.app/api/stocks/getall");
         if (response.ok) {
           const data = await response.json();
           setUpdatedStocks(data);
@@ -33,7 +33,7 @@ export function StockList() {
   // Handle stock deletion
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:9090/api/stocks/${id}`, {
+      const response = await fetch(`https://capx-backend-production.up.railway.app/api/stocks/${id}`, {
         method: "DELETE",
       });
 
@@ -65,7 +65,7 @@ export function StockList() {
     const { stock } = editModal;
 
     try {
-      const response = await fetch(`http://localhost:9090/api/stocks/${stock.id}`, {
+      const response = await fetch(`https://capx-backend-production.up.railway.app/api/stocks/${stock.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
